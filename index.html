@@ -1,0 +1,49 @@
+```html
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Student Registration</h2>
+
+<form onsubmit="return register()">
+    Name: <input type="text" id="name"><br><br>
+    Roll No: <input type="text" id="roll"><br><br>
+    Email: <input type="text" id="email"><br><br>
+    Phone: <input type="text" id="phone"><br><br>
+
+    <button type="submit">Register</button>
+    <button type="reset">Reset</button>
+</form>
+
+<p id="msg"></p>
+
+<script>
+function register() {
+    let n = document.getElementById("name").value;
+    let r = document.getElementById("roll").value;
+    let e = document.getElementById("email").value;
+    let ph = document.getElementById("phone").value;
+
+    if (n == "" || r == "" || e == "" || ph == "") {
+        alert("All fields are required");
+        return false;
+    }
+
+    if (ph.length != 10 || isNaN(ph)) {
+        alert("Phone number must contain 10 digits");
+        return false;
+    }
+
+    if (!e.includes("@") || !e.includes(".")) {
+        alert("Invalid email");
+        return false;
+    }
+
+    alert("Registration Successful!");
+    return false;
+}
+</script>
+
+</body>
+</html>
+```
