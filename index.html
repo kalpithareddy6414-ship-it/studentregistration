@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html>
 <body>
@@ -14,7 +14,7 @@
     <button type="submit">Register</button>
     <button type="reset">Reset</button>
 </form>
-
+<input type="text" id="search" onkeyup="searchStudent()" placeholder="Search student">
 <p id="msg"></p>
 
 <script>
@@ -41,9 +41,17 @@ function register() {
 
     alert("Registration Successful!");
     return false;
+    function searchStudent() {
+    let s = search.value.toLowerCase();
+    let rows = list.rows;
+
+    for (let i = 1; i < rows.length; i++) {
+        rows[i].style.display =
+            rows[i].innerText.toLowerCase().includes(s) ? "" : "none";
+    }
+}
 }
 </script>
 
 </body>
 </html>
-```
